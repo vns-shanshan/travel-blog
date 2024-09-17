@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+#nav-header a {
+  text-decoration: none;
+  font-size: 2rem;
+  margin-left: 2rem;
+  color: #50b498;
+}
+
+.nav-links {
+  margin-right: 2rem;
+}
+
+.authlink {
+  text-decoration: none;
+  margin: 0 1rem;
+  color: #8ca0a0;
+}

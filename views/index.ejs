@@ -4,15 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/partials.css">
   <title>Home Page</title>
-  <!-- <link rel="icon" href="/images/travel-icon.png" type="image/x-icon"> -->
-
 </head>
 
-<body>
+<body class="index-body">
   <%- include('./partials/_navbar.ejs') %>
-  <h1>Welcome to the travel blog.</h1>
-  <p>Share your travel experiences with the world!</p>
+
+  <div class="index-container">
+    <h1 class="main-header">Welcome to the travel blog.</h1>
+    <p class="subheader">Share your travel experiences with the world!</p>
+
+    <div class="auth-links">
+      <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+      <a class="signin-link" href="/auth/sign-in">Sign In</a>
+    </div>
+  </div>
 </body>
 
 </html>

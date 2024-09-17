@@ -4,37 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/partials.css">
   <title>New Post</title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Add New Post</h1>
-  <form action="/users/<%= user._id %>/posts" method="POST">
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title" required />
 
-    <label for="rating">Rating:</label>
-    <select name="rating" id="rating" required>
-      <option value="⭐">⭐</option>
-      <option value="⭐⭐">⭐⭐</option>
-      <option value="⭐⭐⭐">⭐⭐⭐</option>
-    </select>
+  <h1 class="new-header">Add New Post</h1>
+  <div class="new-body">
+    <form action="/users/<%= user._id %>/posts" method="POST">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" required />
 
-    <label for="photo">Photo:</label>
-    <input type="text" name="photo" id="photo" required />
+      <label for="rating">Rating:</label>
+      <select name="rating" id="rating" required>
+        <option value="⭐">⭐</option>
+        <option value="⭐⭐">⭐⭐</option>
+        <option value="⭐⭐⭐">⭐⭐⭐</option>
+      </select>
 
-    <label for="dateVisited">Date Visited:</label>
-    <input type="date" name="dateVisited" id="dateVisited" value="2024-09-16" required />
+      <label for="photo">Photo:</label>
+      <input type="text" name="photo" id="photo" required />
 
-    <label for="estimatedCost">Estimated Cost:</label>
-    <input type="number" name="estimatedCost" id="estimatedCost" />
+      <label for="dateVisited">Date Visited:</label>
+      <input type="date" name="dateVisited" id="dateVisited" value="<%= new Date().toJSON().slice(0, 10) %>" required />
 
-    <label for="content">Content:</label>
-    <textarea name="content" id="content"></textarea>
+      <label for="estimatedCost">Estimated Cost:</label>
+      <input type="number" name="estimatedCost" id="estimatedCost" />
 
-    <button type="submit">Submit</button>
-  </form>
+      <label for="content">Content:</label>
+      <textarea name="content" id="content"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 
 </html>

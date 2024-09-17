@@ -4,39 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/partials.css">
   <title>Edit Post</title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
 
-  <h1>Edit <%= post.title %></h1>
+  <h1 class="edit-header">Edit <%= post.title %></h1>
 
-  <form action="/users/<%= user._id %>/posts/<%= post._id %>?_method=PUT" method="POST">
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="title" value="<%= post.title %>" required />
+  <div class="edit-body">
+    <form action="/users/<%= user._id %>/posts/<%= post._id %>?_method=PUT" method="POST">
+      <label for="title">Title:</label>
+      <input type="text" name="title" id="title" value="<%= post.title %>" required />
 
-    <label for="rating">Rating:</label>
-    <select name="rating" id="rating" required>
-      <option value="⭐" <%= post.rating === '⭐' ? 'selected' : '' %>>⭐</option>
-      <option value="⭐⭐" <%= post.rating === '⭐⭐' ? 'selected' : '' %>>⭐⭐</option>
-      <option value="⭐⭐⭐" <%= post.rating === '⭐⭐⭐' ? 'selected' : '' %>>⭐⭐⭐</option>
-    </select>
+      <label for="rating">Rating:</label>
+      <select name="rating" id="rating" required>
+        <option value="⭐" <%= post.rating === '⭐' ? 'selected' : '' %>>⭐</option>
+        <option value="⭐⭐" <%= post.rating === '⭐⭐' ? 'selected' : '' %>>⭐⭐</option>
+        <option value="⭐⭐⭐" <%= post.rating === '⭐⭐⭐' ? 'selected' : '' %>>⭐⭐⭐</option>
+      </select>
 
-    <label for="photo">Photo:</label>
-    <input type="text" name="photo" id="photo" value="<%= post.photo %>" required />
+      <label for="photo">Photo:</label>
+      <input type="text" name="photo" id="photo" value="<%= post.photo %>" required />
 
-    <label for="dateVisited">Date Visited:</label>
-    <input type="date" name="dateVisited" id="dateVisited" value="<%= post.dateVisited %>" required />
+      <label for="dateVisited">Date Visited:</label>
+      <input type="date" name="dateVisited" id="dateVisited" value="<%= post.dateVisited %>" required />
 
-    <label for="estimatedCost">Estimated Cost:</label>
-    <input type="number" name="estimatedCost" id="estimatedCost" value="<%= post.estimatedCost %>" />
+      <label for="estimatedCost">Estimated Cost:</label>
+      <input type="number" name="estimatedCost" id="estimatedCost" value="<%= post.estimatedCost %>" />
 
-    <label for="content">Content:</label>
-    <textarea name="content" id="content"><%= post.content %></textarea>
+      <label for="content">Content:</label>
+      <textarea name="content" id="content"><%= post.content %></textarea>
 
-    <button type="submit">Submit</button>
-  </form>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </body>
 
 </html>

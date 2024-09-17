@@ -4,27 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/partials.css">
   <title>My Posts</title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Welcome to my Posts</h1>
-  <a href="/users/<%= user._id %>/posts/new">Add New Post</a>
 
-  <% if (posts && posts.length > 0) { %>
-  <ul>
-    <% posts.forEach(post => { %>
-    <li>
-      <a href="/users/<%= user._id %>/posts/<%= post._id %>">
-        <p><span><%= post.title %></span><%= post.rating %></p>
-      </a>
-    </li>
-    <% }) %>
-  </ul>
-  <% } else { %>
-  <p>You have not created any posts yet.</p>
-  <% } %>
+  <div class="all-apps-body">
+    <div class="all-apps-header">
+      <h1>Welcome to my Posts</h1>
+      <a class="add-app-link" href="/users/<%= user._id %>/posts/new">Add New Post</a>
+    </div>
+
+    <% if (posts && posts.length > 0) { %>
+    <ul>
+      <% posts.forEach(post => { %>
+      <li>
+        <a href="/users/<%= user._id %>/posts/<%= post._id %>">
+          <p><span><%= post.title %></span> <%= post.rating %></p>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+    <% } else { %>
+    <p>You have not created any posts yet.</p>
+    <% } %>
+  </div>
 </body>
 
 </html>

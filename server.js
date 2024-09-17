@@ -1,7 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
-const path = require('path');
 const favicon = require('serve-favicon');
 const app = express();
 const mongoose = require('mongoose');
@@ -21,6 +20,7 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 // -------------------------------------------
 
 const port = process.env.PORT ? process.env.PORT : '3000';
+const path = require('path');
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -31,6 +31,10 @@ mongoose.connection.on('connected', () => {
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // app.use(morgan('dev'));
+
+app.use(favicon(path.join(__dirname, 'assets', 'images', 'travel-icon.png')));
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -38,7 +42,6 @@ app.use(
     saveUninitialized: true,
   })
 );
-app.use(favicon(path.join(__dirname, 'assets', 'images', 'travel-icon.png')));
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {

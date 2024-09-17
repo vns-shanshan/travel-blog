@@ -4,23 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/show.css" />
+  <link rel="stylesheet" href="/stylesheets/partials.css">
   <title><%= post.title %></title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1><%= post.title %></h1>
-  <p><%= post.rating %></p>
-  <img src="<%= post.photo %>" alt="<%= post.title %>" />
-  <p>Visited Date: <%= post.dateVisited %></p>
-  <p>Estimate Cost: <%= post.estimatedCost %></p>
-  <p>Details: <%= post.content %></p>
+  <div class="show-body">
+    <div class="show-header">
+      <p><span><%= post.title %> </span><%= post.rating %></p>
 
-  <form action="/users/<%= user._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete this post</button>
-  </form>
+      <div class="show-sidebar">
+        <div class="show-actions">
+          <form action="/users/<%= user._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete this post</button>
+          </form>
 
-  <a href="/users/<%= user._id %>/posts/<%= post._id %>/edit">Edit this post</a>
+          <a href="/users/<%= user._id %>/posts/<%= post._id %>/edit">Edit this post</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="show-photo">
+      <% if (post.photo) { %>
+      <img src="<%= post.photo %>" alt="<%= post.title %>" />
+      <% } %>
+    </div>
+
+    <div class="show-details">
+      <p>Visited Date: <span><%= post.dateVisited %></span></p>
+      <% if (post.estimatedCost) { %>
+      <p>Estimate Cost: <span><%= post.estimatedCost %></span></p>
+      <% } %>
+      <% if (post.content) { %>
+      <p>Details: <span><%= post.content %></span></p>
+      <% } %>
+    </div>
+  </div>
 </body>
 
 </html>
