@@ -16,9 +16,11 @@ router.get('/', async function (req, res) {
 
 router.get('/:userId', async function (req, res) {
     try {
-        const currentUser = await User.findOne({ _id: req.params.userId });
-        const postsInCurrentUser = currentUser.posts;
-        res.render('users/show.ejs', { user: currentUser, posts: postsInCurrentUser });
+        const currentUser = req.session.user;
+
+        const author = await User.findOne({ _id: req.params.userId });
+        const postsInAuthor = author.posts;
+        res.render('users/show.ejs', { user: currentUser, posts: postsInAuthor, author: author.username });
     } catch (error) {
         console.log(error);
         res.redirect('/');
