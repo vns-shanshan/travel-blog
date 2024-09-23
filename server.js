@@ -34,6 +34,7 @@ app.use(methodOverride('_method'));
 
 app.use(favicon(path.join(__dirname, 'assets', 'images', 'travel-icon.png')));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static('assets'));
 
 app.use(
   session({
@@ -57,7 +58,6 @@ app.get('/vip-lounge', (req, res) => {
   }
 });
 
-app.use(express.static('assets'));
 app.use(passUserToView);
 app.use('/auth', authController);
 app.use('/users', usersController);
