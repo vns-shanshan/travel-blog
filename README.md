@@ -12,6 +12,7 @@ This is a travel blog app that allows users to create, read, update, and delete 
 
 - [Github - Travel Blog](https://github.com/vns-shanshan/travel-blog)
 - [Trello - Planning Travel Blog](https://trello.com/b/X5xHa5yM/travel-blog)
+- [Heroku - Travel Blog](https://travel-blog-app-de959a84e749.herokuapp.com/)
 
 ### Features:
 
